@@ -14,6 +14,10 @@
   "license": "TOUT",
   "homepage": "https://github.com/Tout/tout-js-sdk-embed-code#readme",
   "devDependencies": {
+    "eslint": "^2.4.0",
+    "expect.js": "^0.3.1",
+    "mocha": "^2.4.5",
+    "should": "^8.3.0",
     "uglify-js": "^2.6.2"
   }
 }
