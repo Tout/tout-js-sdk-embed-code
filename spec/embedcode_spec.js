@@ -161,6 +161,12 @@ describe("sdk embed code", function () {
         expect(document.getElementById("tout-js-sdk")).toBeNull();
       });
 
+      it("should bail early if brand uid is > 7 characters", function () {
+        TOUT.init('12345678');
+
+        expect(document.getElementById("tout-js-sdk")).toBeNull();
+      });
+
       it("should bail early if brand uid is the placeholder string in the documentation", function () {
         TOUT.init('PUT_YOUR_BRAND_UID_HERE');
 
