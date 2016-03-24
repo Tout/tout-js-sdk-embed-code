@@ -1,0 +1,5 @@
+//The helper.js file is auto-generated when `make build` is run, please
+//don't modify it.
+window.runToutSdkEmbedCode = function () {
+!function(){if(window.TOUT=window.TOUT||{},!TOUT._sdkScriptTagParsedAt){TOUT._sdkScriptTagParsedAt=new Date,TOUT.EMBED_CODE_VERSION="1.1.0";var e=TOUT.SDK_HOST||"platform.tout.com",t=TOUT.SDK_ANALYTICS_HOST||"analytics.tout.com";TOUT.onReady=function(e){return TOUT._onReadyQueue=TOUT._onReadyQueue||[],TOUT._onReadyQueue.push(e),TOUT},TOUT.init=function(T,n){n=n||{};var o="tout-js-sdk";if(document.getElementById(o)&&!n.forceInit)return TOUT;if(T=TOUT.SDK_BRAND_UID||T,"undefined"==typeof T||"string"!=typeof T||0===T.length||"PUT_YOUR_BRAND_UID_HERE"===T){var r=new Image;return r.src="http://"+t+"/events?trigger=sdk_log&log_level=error&log_message=BRAND_UID_NOT_DEFINED&content_page_url="+encodeURIComponent(window.location.href),TOUT}TOUT._initOptions=n;var a=document.createElement("script");a.type="text/javascript",a.src="//"+e+"/sdk/v1/"+T+".js",a.id=o,a.className="tout-sdk";var i=document.getElementsByTagName("script")[0];return i.parentNode.insertBefore(a,i),TOUT}}}();
+};

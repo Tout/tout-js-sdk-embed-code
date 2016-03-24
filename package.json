@@ -15,9 +15,14 @@
   "homepage": "https://github.com/Tout/tout-js-sdk-embed-code#readme",
   "devDependencies": {
     "eslint": "^2.4.0",
-    "expect.js": "^0.3.1",
-    "mocha": "^2.4.5",
-    "should": "^8.3.0",
+    "jasmine": "^2.4.1",
+    "karma": "^0.13.22",
+    "karma-chrome-launcher": "^0.2.3",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-ie-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.8",
+    "karma-opera-launcher": "^0.3.0",
+    "karma-safari-launcher": "^0.1.1",
     "uglify-js": "^2.6.2"
   }
 }
