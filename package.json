@@ -1,0 +1,19 @@
+{
+  "name": "js-sdk-embed-code",
+  "version": "1.1.0",
+  "description": "Tout JS SDK Embed Code",
+  "main": "index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:Tout/tout-js-sdk-embed-code.git"
+  },
+  "author": "Tout",
+  "license": "TOUT",
+  "homepage": "https://github.com/Tout/tout-js-sdk-embed-code#readme",
+  "devDependencies": {
+    "uglify-js": "^2.6.2"
+  }
+}
