@@ -5,6 +5,7 @@ all: build
 build: node_modules
 	$(NODE_BIN)/uglifyjs ./src/index.js -c -m -o ./dist/tout-js-sdk-embed-code.min.js
 	cat ./spec/support/helper_prefix.txt ./dist/tout-js-sdk-embed-code.min.js ./spec/support/helper_suffix.txt > ./spec/support/helper.js
+	./bin/generate_readme.sh
 
 lint:
 	$(NODE_BIN)/eslint test/ src/
