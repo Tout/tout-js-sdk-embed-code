@@ -5,7 +5,7 @@
 -->
 # Tout JS SDK Embed Code
 
-This project contains the JS SDK Embed Code that [TOUT](www.tout.com)
+This project contains the JS SDK Embed Code that [Tout](www.tout.com)
 partners can use to embed the Tout video player technology on their
 website. For more detailed instructions or support, please contact 
 your Tout account manager. 
