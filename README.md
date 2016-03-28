@@ -35,14 +35,20 @@ Run the following command to generate the minified distribution of the
 js code, the unit test helpers, and the project documentation. You must 
 run this command before creating a new release.
 
-```make```
+```
+make
+```
 
 ### Running tests
 Run the following command to execute the unit tests.
 
-```make test```
+```
+make test
+```
 
 ### Running the lint tool
 Run the following command to execute the lint tool.
 
-```make lint```
+```
+make lint
+```
