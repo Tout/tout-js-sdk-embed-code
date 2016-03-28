@@ -24,6 +24,9 @@ the ending ```</head>``` tag in your site template:
 </script>
 ```
 
+You must replace the string `PUT_YOUR_BRAND_UID_HERE` with the Tout
+Brand UID that was provided to you by your Tout account manager.
+
 You will also have to place our custom product ```<div>``` codes in the
 appropriate places where you want our products to appear in your page 
 template. For more details, please contact your Tout account manager.
