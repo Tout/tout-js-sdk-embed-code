@@ -1,3 +1,4 @@
+.PHONY: all build generate_test_helper generate_docs lint test test-nolint clean node_modules
 NODE_BIN=./node_modules/.bin
 
 all: build generate_test_helper generate_docs
@@ -27,4 +28,3 @@ clean:
 
 node_modules: package.json
 	npm install
-
