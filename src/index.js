@@ -1,6 +1,6 @@
-(function () {
+(function (window, document) {
   // Create the TOUT global variable
-  window.TOUT = window.TOUT || {};
+  var TOUT = window.TOUT = window.TOUT || {};
 
   // Bail early if the sdk has already been loaded
   if (TOUT._sdkScriptTagParsedAt) { return; }
@@ -11,7 +11,7 @@
   TOUT._sdkScriptTagParsedAt = new Date;
 
   // Set an embed code version for debugging purposes
-  TOUT.EMBED_CODE_VERSION='1.1.1';
+  TOUT.EMBED_CODE_VERSION='1.1.2';
 
   // Setup embed code constants which can be overriden for testing purposes
   var sdkHost = TOUT.SDK_HOST || 'platform.tout.com',
@@ -68,4 +68,4 @@
     // return the instance for chainability
     return TOUT;
   };
-})();
+})(window, document);

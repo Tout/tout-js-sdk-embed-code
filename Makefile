@@ -3,7 +3,7 @@ NODE_BIN=./node_modules/.bin
 all: build generate_test_helper generate_docs
 
 build: node_modules
-	$(NODE_BIN)/uglifyjs ./src/index.js -c -m -o ./dist/tout-js-sdk-embed-code.min.js
+	$(NODE_BIN)/uglifyjs ./src/index.js -c -o ./dist/tout-js-sdk-embed-code.min.js
 
 generate_test_helper:
 	cat ./spec/support/helper_prefix.txt ./dist/tout-js-sdk-embed-code.min.js ./spec/support/helper_suffix.txt > ./spec/support/helper.js

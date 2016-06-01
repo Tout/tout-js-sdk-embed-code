@@ -1,4 +1,6 @@
 describe("sdk embed code", function () {
+  var consoleErrorSpy;
+
   beforeEach(function () {
     // clear out the window.TOUT namespace;
     window.TOUT = undefined;
@@ -8,6 +10,8 @@ describe("sdk embed code", function () {
     if (embedCodeEl) {
       embedCodeEl.parentNode.removeChild(embedCodeEl);
     }
+
+    consoleErrorSpy = spyOn(console, "error");
   });
 
   describe("without running init", function () {
@@ -143,34 +147,39 @@ describe("sdk embed code", function () {
         window.runToutSdkEmbedCode();
       });
 
-      it("should bail early if brand uid is undefined", function () {
+      it("should bail early and console.error if brand uid is undefined", function () {
         TOUT.init();
 
         expect(document.getElementById("tout-js-sdk")).toBeNull();
+        expect(consoleErrorSpy).toHaveBeenCalledWith('TOUT - Invalid Brand UID: undefined');
       });
 
-      it("should bail early if brand uid isn't a string", function () {
+      it("should bail early and console.error if brand uid isn't a string", function () {
         TOUT.init({});
 
         expect(document.getElementById("tout-js-sdk")).toBeNull();
+        expect(consoleErrorSpy).toHaveBeenCalledWith('TOUT - Invalid Brand UID: [object Object]');
       });
 
-      it("should bail early if brand uid is an empty string", function () {
+      it("should bail early and console.error if brand uid is an empty string", function () {
         TOUT.init('');
 
         expect(document.getElementById("tout-js-sdk")).toBeNull();
+        expect(consoleErrorSpy).toHaveBeenCalledWith('TOUT - Invalid Brand UID: ');
       });
 
-      it("should bail early if brand uid is > 7 characters", function () {
+      it("should bail early and console.error if brand uid is > 7 characters", function () {
         TOUT.init('12345678');
 
         expect(document.getElementById("tout-js-sdk")).toBeNull();
+        expect(consoleErrorSpy).toHaveBeenCalledWith('TOUT - Invalid Brand UID: 12345678');
       });
 
-      it("should bail early if brand uid is the placeholder string in the documentation", function () {
+      it("should bail early and console.error if brand uid is the placeholder string in the documentation", function () {
         TOUT.init('PUT_YOUR_BRAND_UID_HERE');
 
         expect(document.getElementById("tout-js-sdk")).toBeNull();
+        expect(consoleErrorSpy).toHaveBeenCalledWith('TOUT - Invalid Brand UID: PUT_YOUR_BRAND_UID_HERE');
       });
 
       it("should return the TOUT namespace when bailing early", function(){
