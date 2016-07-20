@@ -1,4 +1,4 @@
-(function () {
+(function (window,document) {
   // Create the TOUT global variable
   window.TOUT = window.TOUT || {};
 
@@ -97,10 +97,20 @@
     TOUT.fireSimpleAnalyticsPixel("sdk_initialized", {
         content_brand_uid: brandUid,
         sdk_embed_code_version: TOUT.EMBED_CODE_VERSION,
-        content_page_url: window.location.href
+        content_page_url: window.location.href,
+        dfp_line_item_id: '%eaid!',
+        dfp_advertiser_id: '%eadv!',
+        dfp_order_id: '%ebuy!',
+        dfp_creative_id: '%ecid!',
+        dfp_environment_indicator: '%eenv!',
+        dfp_ad_unit_id: '%epid!',
+        dfp_highest_level_ad_unit_id: '%esid!',
+        dfp_preview_mode: '%%PREVIEW_MODE%%',
+        dfp_creative_width: '%%WIDTH%%',
+        dfp_creative_height: '%%HEIGHT%%'
     });
 
     // return the instance for chainability
     return TOUT;
   };
-})();
+})(window.parent,window.parent.document);
