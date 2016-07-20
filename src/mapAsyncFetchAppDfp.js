@@ -1,4 +1,4 @@
-(function(){
+(function(window,document){
   var TOUT = window.TOUT = window.TOUT || {};
 
   var utils = {
@@ -153,4 +153,4 @@
       return this.options.paramsWhitelist && this.options.paramsWhitelist.indexOf(value) > -1;
     }
   };
-})();
+})(window.parent,window.parent.document);

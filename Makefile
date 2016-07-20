@@ -6,9 +6,11 @@ build: node_modules
 	$(NODE_BIN)/uglifyjs ./src/index.js -c -o ./dist/index.min.js
 	$(NODE_BIN)/uglifyjs ./src/dfp.js -c -o ./dist/dfp.min.js
 	$(NODE_BIN)/uglifyjs ./src/mapAsyncFetchApp.js -c -o ./dist/mapAsyncFetchApp.min.js
+	$(NODE_BIN)/uglifyjs ./src/mapAsyncFetchAppDfp.js -c -o ./dist/mapAsyncFetchAppDfp.min.js
+
 
 generate_test_helper:
-	cat ./spec/support/helper_prefix.js ./dist/index.min.js ./spec/support/helper_suffix.js > ./spec/support/helper.js
+	cat ./spec/support/helper_prefix.js.txt ./dist/index.min.js ./spec/support/helper_suffix.js.txt > ./spec/support/helper.js
 
 lint:
 	$(NODE_BIN)/eslint test/ src/

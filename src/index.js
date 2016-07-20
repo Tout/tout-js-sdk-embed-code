@@ -1,11 +1,13 @@
 (function () {
   // Create the TOUT global variable
-  window.TOUT = window.TOUT || {};
+  var TOUT = window.TOUT = window.TOUT || {};
 
+  /* eslint-disable no-console */
   // Log out to the console that the Tout embed code is being loaded (for debugging purposes)
   if(console && console.log){
-    console.log("Tout SDK: " + (+new Date));
+    console.log('Tout SDK: ' + (+new Date));
   }
+  /* eslint-enable no-console */
 
   // Bail early if the sdk has already been loaded
   if (TOUT._sdkScriptTagParsedAt) { return; }
@@ -20,12 +22,11 @@
 
   // Setup embed code constants which can be overriden for testing purposes
   var sdkHost = TOUT.SDK_HOST || 'platform.tout.com',
-    sdkProtocol = TOUT.SDK_PROTOCOL || ("https:" == window.location.protocol ? "https:" : "http:"),
+    sdkProtocol = TOUT.SDK_PROTOCOL || ('https:' == window.location.protocol ? 'https:' : 'http:'),
     analyticsHost = TOUT.SDK_ANALYTICS_HOST || 'analytics.tout.com',
     analyticsProtocol = TOUT.SDK_ANALYTICS_PROTOCOL || sdkProtocol;
 
   // Setup an onReady handler which can save off any function calls until the sdk script tag has been loaded
-  // TODO: unit test TOUT.onReady won't override itself
   TOUT.onReady = TOUT.onReady || function (func) {
     TOUT._onReadyQueue = TOUT._onReadyQueue || [];
     TOUT._onReadyQueue.push(func);
@@ -34,14 +35,13 @@
     return TOUT;
   };
 
-  // TODO: Test me
   TOUT.fireSimpleAnalyticsPixel = function (trigger_name, attrs) {
     var img = new Image,
-      url = analyticsProtocol + "//" + analyticsHost + "/events?trigger=" + trigger_name;
+      url = analyticsProtocol + '//' + analyticsHost + '/events?trigger=' + trigger_name;
 
-    for(attr in attrs){
+    for(var attr in attrs){
       if(attrs.hasOwnProperty(attr)){
-        url += "&" + attr + "=" + encodeURIComponent(attrs[attr]);
+        url += '&' + attr + '=' + encodeURIComponent(attrs[attr]);
       }
     }
 
@@ -66,7 +66,6 @@
     // If brand uid isn't configured correctly, ping our analytics servers so Account Services can help that customer.
     if (typeof brandUid === 'undefined' || typeof brandUid !== 'string' || brandUid.length === 0 || brandUid.length > 7) {
 
-      // TODO: test me
       TOUT.fireSimpleAnalyticsPixel('sdk_log', {
         log_level: 'error',
         log_message: 'BRAND_UID_NOT_DEFINED',
@@ -94,10 +93,10 @@
     firstScript.parentNode.insertBefore(script, firstScript);
 
     // Fire an sdk_initialized event
-    TOUT.fireSimpleAnalyticsPixel("sdk_initialized", {
-        content_brand_uid: brandUid,
-        sdk_embed_code_version: TOUT.EMBED_CODE_VERSION,
-        content_page_url: window.location.href
+    TOUT.fireSimpleAnalyticsPixel('sdk_initialized', {
+      content_brand_uid: brandUid,
+      sdk_embed_code_version: TOUT.EMBED_CODE_VERSION,
+      content_page_url: window.location.href
     });
 
     // return the instance for chainability
